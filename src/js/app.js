@@ -7,27 +7,24 @@ d3.select('.d3-here').append('p').text('Hello, this is D3 practice start point.'
 
 var width = 400;
 var height = 400;
+var barHeight = 50;
+
+var dataArray = [10, 30, 450];
 
 var canvas = d3.select('.d3-here')
 	.append('svg')
 	.attr('width', width)
 	.attr('height', height);
 
-var circle = canvas.append('circle')
-	.attr('cx', 200)
-	.attr('cy', 200)
-	.attr('r', 100)
-	.attr('fill', $c_01);
-
-var rect = canvas.append('rect')
-	.attr('width', 100)
-	.attr('height', 100)
-	.attr('fill', $c_02);
-
-var line = canvas.append('line')
-	.attr('x1', 10)
-	.attr('y1', 120)
-	.attr('x2', 100)
-	.attr('y2', 400)
-	.attr('stroke', $c_03)
-	.attr('stroke-width', 5);
+var bars = canvas.selectAll('rect')
+	.data(dataArray)
+	.enter()
+		.append('rect')
+		.attr('width', function(d, i) {
+			return d;
+		})
+		.attr('height', barHeight)
+		.attr('y', function(d, i) {
+			console.log(d);
+			return i * barHeight * 1.2;
+		});
