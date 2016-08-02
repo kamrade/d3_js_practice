@@ -3,9 +3,10 @@ console.log( "d3 version is " + d3.version );
 d3.select('.d3-here').append('p').text('Hello, this is D3 practice.');
 
 // templates
-var nodesQ = 0;
-var nodes = [];
-var links = [];
+var nodesQ = 0; // общее количество генерируемых точек
+				// random
+var nodes = []; // массив объектов x, y
+var links = []; // массив объекоа source -> target
 
 //  Options
 var $c_01 = '#21b1e0',
@@ -28,7 +29,7 @@ var ticksY = 2;
 function randomNodes() {
 	nodesQ = Math.floor(Math.random() * (maxValues - minValues)) + minValues;
 	ticksX = nodesQ - 1;
-	console.log(nodesQ);
+	console.log("Общее количество точек: " + nodesQ);
 	var item = { x: 0, y: 0 };
 	for (var i = 0; i < nodesQ; i++) {
 		item.x = i * 50;

@@ -36,7 +36,7 @@ gulp.task('sass', function(){
 gulp.task('connect', function() {
   connect.server({
     root: './',
-    port: 8080,
+    port: 8081,
     livereload: true
   });
 });
